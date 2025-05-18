@@ -19,47 +19,68 @@ Zawiera 4 typy danych takie jak: date, time, int, varchar.
 2. Wymagania funkcjonalne 
  
 2.1 Zarządzanie playlistami 
- 	•	Możliwość tworzenia nowych playlist. 
- 	•	Możliwość dodawania i usuwania piosenek z playlist. 
- 	•	Możliwość edycji nazw oraz przeglądania zawartości playlist. 
+ 	
+    •	Możliwość tworzenia nowych playlist. 
+ 	
+    •	Możliwość dodawania i usuwania piosenek z playlist. 
+ 	
+    •	Możliwość edycji nazw oraz przeglądania zawartości playlist. 
  
 2.2 Zarządzanie piosenkami 
- 	•	Możliwość dodawania nowych piosenek. 
- 	•	Możliwość przypisywania piosenek do albumów i wykonawców. 
- 	•	Możliwość edycji oraz usuwania piosenek. 
+ 	
+    •	Możliwość dodawania nowych piosenek. 
+ 	
+    •	Możliwość przypisywania piosenek do albumów i wykonawców. 
+ 	
+    •	Możliwość edycji oraz usuwania piosenek. 
  
 2.3 Zarządzanie albumami 
  	•	Możliwość dodawania nowych albumów. 
- 	•	Możliwość przypisywania piosenek do albumów. 
- 	•	Możliwość edycji oraz usuwania albumów. 
+ 	
+    •	Możliwość przypisywania piosenek do albumów. 
+ 	
+    •	Możliwość edycji oraz usuwania albumów. 
  
 2.4 Zarządzanie wykonawcami 
- 	•	Możliwość dodawania wykonawców do bazy danych. 
- 	•	Możliwość przypisywania wykonawców do albumów i piosenek. 
- 	•	Możliwość edycji oraz usuwania wykonawców. 
+ 	
+    •	Możliwość dodawania wykonawców do bazy danych. 
+ 	
+    •	Możliwość przypisywania wykonawców do albumów i piosenek. 
+ 	
+    •	Możliwość edycji oraz usuwania wykonawców. 
  
 2.5 Zarządzanie wytwórniami muzycznymi 
- 	•	Możliwość dodawania wytwórni do bazy danych. 
- 	•	Możliwość przypisywania wytwórni do wykonawców. 
- 	•	Możliwość edycji oraz usuwania wytwórni. 
+ 	
+    •	Możliwość dodawania wytwórni do bazy danych. 
+ 	
+    •	Możliwość przypisywania wytwórni do wykonawców. 
+ 	
+    •	Możliwość edycji oraz usuwania wytwórni. 
  
 2.6 Relacje między encjami 
- 	•	Playlista może zawierać wiele piosenek. 
- 	•	Piosenka należy do jednego albumu, ale może znajdować się na wielu 		playlistach. 
- 	•	Album może zawierać wiele piosenek i być przypisany do jednego 			wykonawcy. 
- 	•	Wykonawca może mieć wiele albumów i być przypisany do jednej 			wytwórni. 
+ 	
+    •	Playlista może zawierać wiele piosenek. 
+ 	
+    •	Piosenka należy do jednego albumu, ale może znajdować się na wielu 		playlistach. 
+ 	
+    •	Album może zawierać wiele piosenek i być przypisany do jednego 			wykonawcy. 
+ 	
+    •	Wykonawca może mieć wiele albumów i być przypisany do jednej 			wytwórni. 
  
  
 3. Wymagania niefunkcjonalne 
  
 3.1 Wydajność 
- 	•	System powinien obsługiwać zapytania do bazy danych w czasie poniżej 1 		sekundy. 
+ 	
+    •	System powinien obsługiwać zapytania do bazy danych w czasie poniżej 1 		sekundy. 
  
 3.2 Bezpieczeństwo 
- 	•	Dostęp do edycji i usuwania danych powinien być ograniczony do 			uprawnionych użytkowników. 
+ 	
+    •	Dostęp do edycji i usuwania danych powinien być ograniczony do 			uprawnionych użytkowników. 
  
 3.3 Skalowalność 
- 	•	System powinien umożliwiać dodawanie nowych utworów, albumów, 		wykonawców i playlist bez ograniczeń co do liczby rekordów. 
+ 	
+    •	System powinien umożliwiać dodawanie nowych utworów, albumów, 		wykonawców i playlist bez ograniczeń co do liczby rekordów. 
  
  
 4. Model danych 
