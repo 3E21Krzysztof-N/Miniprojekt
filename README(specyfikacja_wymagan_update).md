@@ -183,5 +183,116 @@ Atrybut	Typ danych	Opis
     •	Organizację danych w hierarchicznej strukturze (Playlista → Piosenki → Albumy → Wykonawcy → Wytwórnie). 
  	
     •	Zarządzanie relacjami między encjami. 
+    
 7. Zrzut z designera
    <img width="1271" alt="Screenshot 2025-05-22 at 09 54 42" src="https://github.com/user-attachments/assets/0112eced-40b9-4155-8d69-007a464f32a2" />
+
+8.Widok relacyjny bazy danych
+   <img width="1040" alt="Screenshot 2025-05-22 at 09 58 25" src="https://github.com/user-attachments/assets/d5a5c0f7-b10e-4842-96e6-14edd0f0508e" />
+
+9.Layout strony
+<img width="1512" alt="Screenshot 2025-05-22 at 09 53 13" src="https://github.com/user-attachments/assets/7d129419-fd9b-4b4f-973e-d95befc78f2e" />
+
+---
+
+# PlaylistHub: Twój Cyfrowy Notatnik Muzyczny
+
+Wyobraź sobie **PlaylistHub** jako specjalny **cyfrowy notatnik muzyczny** działający online. Przechowuje on informacje o piosenkach, artystach i Twoich osobistych playlistach.
+
+---
+
+## Co możesz robić w tym notatniku?
+
+* **Przeglądać spisy**
+  Przeglądaj listy artystów, albumów i piosenek – jak w katalogu muzycznym.
+
+* **Zakładać nowe "zakładki" (playlisty)**
+  Twórz własne kategorie, np. *"Muzyka do biegania"* czy *"Relaks wieczorem"*.
+
+* **Zapisywać piosenki w zakładkach**
+  Dodawaj utwory do wybranych playlist.
+
+* **Wykreślać piosenki z zakładek**
+  Usuń utwory, które już Ci się znudziły.
+
+* **Zmieniać nazwy zakładek**
+  Zmieniaj nazwy swoich playlist, gdy np. *"Muzyka do biegania"* zamienia się w *"Turbo Trening"*.
+
+**Uwaga:** PlaylistHub **nie odtwarza muzyki** i **nie wyświetla obrazków** – służy tylko do organizowania informacji o muzyce.
+
+---
+
+## Jak to działa, gdy coś klikasz?
+
+### Centralny Magazyn Danych (Wielka Księga)
+
+Wszystkie dane (artyści, utwory, playlisty) są przechowywane w jednym miejscu – w tzw. **Wielkiej Księdze**.
+
+### System Obsługi Zapytań (Inteligentny Asystent)
+
+Kiedy klikniesz coś na stronie, komputer wysyła **zapytanie do serwera**. Odpowiada na nie nasz "Inteligentny Asystent" (np. aplikacja napisana w PHP).
+
+### Strona Internetowa (Wygenerowany Raport)
+
+Asystent przetwarza zapytanie, przegląda dane i generuje stronę (HTML + CSS), którą widzisz w przeglądarce.
+
+### Twoja Przeglądarka (Prezenter Raportu)
+
+Otrzymuje gotowy raport i pokazuje go na ekranie w czytelnej, estetycznej formie.
+
+---
+
+## Case Study: Tworzysz nową playlistę "Wieczorne Nuty"
+
+### Krok 1: Tworzenie playlisty
+
+* **Ty:** Klikasz „Utwórz Nową Playlistę”.
+* **Przeglądarka:** Wysyła zapytanie: „Użytkownik chce utworzyć nową playlistę”.
+
+---
+
+### Krok 2: Nadanie nazwy
+
+* **Ty:** Wpisujesz „Wieczorne Nuty” i klikasz „Utwórz”.
+* **Serwer:**
+
+  * Zapisuje nową playlistę w Wielkiej Księdze:
+
+    ```
+    Nazwa: Wieczorne Nuty
+    Data utworzenia: [dzisiejsza data]
+    Liczba piosenek: 0
+    Czas: 00:00:00
+    ```
+  * Wysyła instrukcję do przeglądarki, by przejść na stronę edycji playlisty.
+
+---
+
+### Krok 3: Wyświetlenie pustej playlisty
+
+* **Przeglądarka:** Przechodzi do `edit_playlist.php?id=123`.
+* **Serwer:** Pobiera:
+
+  * Szczegóły playlisty o ID 123.
+  * Listę wszystkich dostępnych piosenek w systemie.
+* **Wygenerowana strona:** Wyświetla:
+
+  * Tytuł: „Wieczorne Nuty”
+  * Informację: brak piosenek na liście
+  * Listę dostępnych utworów do dodania
+
+---
+
+### Krok 4: Dodanie piosenki "Moonlight Sonata"
+
+* **Ty:** Klikasz „Dodaj” przy utworze „Moonlight Sonata”.
+* **Przeglądarka:** Wysyła zapytanie: „Dodaj piosenkę o ID 789 do playlisty o ID 123”.
+* **Serwer:**
+
+  * Aktualizuje playlistę: dodaje utwór, zwiększa liczbę piosenek i sumaryczny czas trwania.
+  * Generuje ponownie stronę edycji:
+
+    * Sekcja „Piosenki w tej playliście” zawiera teraz „Moonlight Sonata”.
+    * Jeśli utwór występował tylko raz, znika z listy dostępnych.
+
+---
