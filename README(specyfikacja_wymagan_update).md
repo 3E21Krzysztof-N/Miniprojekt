@@ -105,6 +105,8 @@ Atrybut	Typ danych	Opis
  
  LiczbaUtworów	INT	Liczba piosenek w playliście 
  
+ <img width="1108" alt="Screenshot 2025-05-22 at 10 15 01" src="https://github.com/user-attachments/assets/0cb7b97e-6721-411c-a397-c783238b9999" />
+
 4.2 Tabela: Piosenka 
  
 Atrybut	Typ danych	Opis 
@@ -118,6 +120,9 @@ Atrybut	Typ danych	Opis
  AlbumID	INT (FK)	ID albumu, do którego należy 
  
  WykonawcaID	INT (FK)	ID wykonawcy piosenki 
+
+ <img width="1094" alt="Screenshot 2025-05-22 at 10 13 58" src="https://github.com/user-attachments/assets/6ec7071b-d106-479c-9482-1af3fe383582" />
+
  
 4.3 Tabela: Album 
  
@@ -131,6 +136,8 @@ Atrybut	Typ danych	Opis
  
  IlośćPiosenek	INT	Liczba piosenek na albumie 
  
+ <img width="1107" alt="Screenshot 2025-05-22 at 10 12 22" src="https://github.com/user-attachments/assets/63598b0b-413a-466d-8fb8-f0341dd39a68" />
+
 4.4 Tabela: Wykonawca 
  
 Atrybut	Typ danych	Opis 
@@ -140,6 +147,11 @@ Atrybut	Typ danych	Opis
  Nazwa	VARCHAR(255)	Nazwa wykonawcy 
  
  WytwórniaID	INT (FK)	ID wytwórni, do której należy 
+
+ 
+<img width="1100" alt="Screenshot 2025-05-22 at 10 17 36" src="https://github.com/user-attachments/assets/9e5ecf47-384d-4250-8d8c-b8e8f7b6d0a4" />
+
+ 
  
 4.5 Tabela: Wytwórnia 
  
@@ -148,6 +160,9 @@ Atrybut	Typ danych	Opis
  ID	INT (PK)	Unikalny identyfikator wytwórni 
  
  Nazwa	VARCHAR(255)	Nazwa wytwórni 
+
+ <img width="1114" alt="Screenshot 2025-05-22 at 10 16 42" src="https://github.com/user-attachments/assets/b2dbd60c-53b9-44e9-a434-419ad47dd2f5" />
+
  
 4.6 Tabela: Playlista_Piosenka (relacja wiele-do-wielu między playlistą a piosenką) 
  
@@ -157,6 +172,8 @@ Atrybut	Typ danych	Opis
  
  ID_Piosenki	INT (FK)	ID piosenki 
  
+ <img width="1106" alt="Screenshot 2025-05-22 at 10 15 52" src="https://github.com/user-attachments/assets/4b473c9b-bec1-4ab1-91f7-0da2ecd0b6b7" />
+
  
 5. Relacje między tabelami 
  	
@@ -187,11 +204,23 @@ Atrybut	Typ danych	Opis
 7. Zrzut z designera
    <img width="1271" alt="Screenshot 2025-05-22 at 09 54 42" src="https://github.com/user-attachments/assets/0112eced-40b9-4155-8d69-007a464f32a2" />
 
-8.Widok relacyjny bazy danych
+8. Widok relacyjny bazy danych
    <img width="1040" alt="Screenshot 2025-05-22 at 09 58 25" src="https://github.com/user-attachments/assets/d5a5c0f7-b10e-4842-96e6-14edd0f0508e" />
 
-9.Layout strony
-<img width="1512" alt="Screenshot 2025-05-22 at 09 53 13" src="https://github.com/user-attachments/assets/7d129419-fd9b-4b4f-973e-d95befc78f2e" />
+9. Layout strony głównej
+   <img width="1512" alt="Screenshot 2025-05-22 at 09 53 13" src="https://github.com/user-attachments/assets/7d129419-fd9b-4b4f-973e-d95befc78f2e" />
+
+
+10. Layout strony z artystami
+   <img width="1342" alt="Screenshot 2025-05-22 at 10 18 58" src="https://github.com/user-attachments/assets/baf1997b-ca33-4936-baf0-fd280f1f825e" />
+
+11. Layout strony z albumami
+    <img width="1339" alt="Screenshot 2025-05-22 at 10 20 19" src="https://github.com/user-attachments/assets/c4f50314-732a-4c4e-843e-88d87b725c16" />
+
+12. Layout strony z playlistami
+    <img width="1341" alt="Screenshot 2025-05-22 at 10 21 44" src="https://github.com/user-attachments/assets/cb3a5a11-a3ae-47d2-b02a-f48e88556311" />
+
+
 
 ---
 
