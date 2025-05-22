@@ -183,3 +183,5 @@ Atrybut	Typ danych	Opis
     •	Organizację danych w hierarchicznej strukturze (Playlista → Piosenki → Albumy → Wykonawcy → Wytwórnie). 
  	
     •	Zarządzanie relacjami między encjami. 
+7. Zrzut z designera
+   <img width="1271" alt="Screenshot 2025-05-22 at 09 54 42" src="https://github.com/user-attachments/assets/0112eced-40b9-4155-8d69-007a464f32a2" />
