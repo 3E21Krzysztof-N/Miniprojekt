@@ -2,10 +2,10 @@
 ini_set('display_errors', 1); error_reporting(E_ALL);
 include 'includes/header.php';
 
-// Define the function at the top
+
 if (!function_exists('format_duration_from_time_type')) {
     function format_duration_from_time_type($time_str) {
-        if (empty($time_str) || $time_str == '00:00:00') return '0:00'; // Or 'N/A' or however you want to display zero
+        if (empty($time_str) || $time_str == '00:00:00') return '0:00'; 
         list($h, $m, $s) = explode(':', $time_str);
         $h = (int)$h;
         $m = (int)$m;
@@ -18,11 +18,11 @@ if (!function_exists('format_duration_from_time_type')) {
     }
 }
 
-// Check for messages from other pages (e.g., after deletion)
+
 $message = '';
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
-    unset($_SESSION['message']); // Clear the message after displaying
+    unset($_SESSION['message']); 
 }
 ?>
 <h1>All Playlists</h1>
@@ -50,7 +50,6 @@ if (isset($_SESSION['message'])) {
         <div class="card">
             <h3><a href="view_playlist.php?id=<?= $playlist_item['ID'] ?>"><?= htmlspecialchars($playlist_item['Nazwa']) ?></a></h3>
             <p><?= htmlspecialchars($playlist_item['LiczbaUtworow'] ?? 0) ?> songs</p>
-            <!-- This is line 37 (or around it) where the error occurred -->
             <p class="card-meta">Duration: <?= htmlspecialchars(format_duration_from_time_type($playlist_item['CzasTrwania'] ?? '00:00:00')) ?></p>
             <p class="card-meta">Created: <?= htmlspecialchars(date("M j, Y", strtotime($playlist_item['DataUtworzenia']))) ?></p>
             <div class="actions">
@@ -66,6 +65,5 @@ if (isset($_SESSION['message'])) {
 </div>
 
 <?php
-// The function definition can be removed from here now
 include 'includes/footer.php';
 ?>

@@ -1,5 +1,5 @@
 <?php
-// It's good practice to start session if you plan to use flash messages later
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -14,7 +14,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <title>PlaylistHub</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Basic Reset & Defaults */
+        
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +31,7 @@ body {
     min-height: 100vh;
 }
 
-/* Navigation */
+
 nav.main-nav {
     background-color: #1DB954;
     padding: 1rem 2rem;
@@ -67,7 +67,7 @@ nav.main-nav ul li a.active {
     border-bottom: 2px solid #ffffff;
 }
 
-/* Main Content Area */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -86,10 +86,10 @@ p { margin-bottom: 1rem; color: #b3b3b3; }
 a { color: #1DB954; text-decoration: none; }
 a:hover { text-decoration: underline; color: #1ed760; }
 
-/* Grid for cards */
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted minmax */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
     gap: 25px;
     margin-top: 20px;
 }
@@ -101,7 +101,7 @@ a:hover { text-decoration: underline; color: #1ed760; }
     text-align: left;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    display: flex; /* For better content alignment if needed */
+    display: flex; 
     flex-direction: column;
 }
 .card:hover { background-color: #282828; transform: translateY(-5px); }
@@ -110,23 +110,23 @@ a:hover { text-decoration: underline; color: #1ed760; }
 .card h3 a:hover { color: #1DB954; text-decoration: none; }
 .card p { font-size: 0.95rem; color: #b3b3b3; margin-bottom: 5px; }
 .card .card-meta { font-size: 0.85rem; color: #888; }
-.card .actions { margin-top: auto; padding-top: 10px; } /* Push actions to bottom */
+.card .actions { margin-top: auto; padding-top: 10px; } 
 .card .actions a { margin-right: 10px; font-size: 0.9em; }
 
 
-/* Detail Pages Specifics */
+
 .detail-header {
-    display: flex; /* Keep flex for alignment if you add other elements */
-    align-items: center; /* Vertically align items if you have multiple rows in .detail-info */
+    display: flex; 
+    align-items: center; 
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #333;
 }
-/* Removed .detail-header img styles */
+
 .detail-info h1 { text-align: left; margin-bottom: 0.5rem;}
 .detail-info p { margin-bottom: 0.3rem; }
 
-/* Tables for tracks/songs */
+
 .track-list { width: 100%; border-collapse: collapse; margin-top: 20px; }
 .track-list th, .track-list td {
     text-align: left; padding: 12px 15px; border-bottom: 1px solid #282828;
@@ -150,7 +150,7 @@ a:hover { text-decoration: underline; color: #1ed760; }
 .track-list .remove-button:hover { background-color: #c9302c; }
 
 
-/* Forms */
+
 .form-styled div, .form-section div { margin-bottom: 15px; }
 .form-styled label, .form-section label { display: block; margin-bottom: 5px; font-weight: bold; }
 .form-styled input[type="text"], .form-styled textarea,
@@ -165,7 +165,7 @@ a:hover { text-decoration: underline; color: #1ed760; }
 }
 .form-styled textarea, .form-section textarea { min-height: 80px; }
 
-/* Buttons */
+
 .button, button {
     display: inline-block; padding: 10px 20px; background-color: #1DB954;
     color: white !important; text-decoration: none; border-radius: 25px;
@@ -179,19 +179,19 @@ a:hover { text-decoration: underline; color: #1ed760; }
 .button-secondary:hover { background-color: #666;}
 
 
-/* Messages */
+
 .message { padding: 10px 15px; margin-bottom: 20px; border-radius: 4px; border: 1px solid transparent; }
 .message.success { color: #1DB954; background-color: rgba(29, 185, 84, 0.1); border-color: #1DB954; }
 .message.error { color: #f44336; background-color: rgba(244, 67, 54, 0.1); border-color: #f44336; }
 .message.info { color: #2196F3; background-color: rgba(33, 150, 243, 0.1); border-color: #2196F3; }
 
-/* Edit Playlist Specifics */
+
 .edit-playlist-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Default to 1 column */
+    grid-template-columns: 1fr; 
     gap: 30px;
 }
-@media (min-width: 992px) { /* For larger screens, 2 columns */
+@media (min-width: 992px) { 
     .edit-playlist-grid { grid-template-columns: 1fr 1fr; }
 }
 .form-section { padding: 20px; background-color: #181818; border-radius: 8px; }
@@ -199,7 +199,7 @@ a:hover { text-decoration: underline; color: #1ed760; }
 .search-songs input[type="text"] { margin-bottom: 10px; }
 
 
-/* Footer */
+
 footer.main-footer {
     background-color: #000; color: #888; text-align: center;
     padding: 1.5rem; margin-top: auto; font-size: 0.9rem;

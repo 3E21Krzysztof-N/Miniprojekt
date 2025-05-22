@@ -1,30 +1,28 @@
 <?php
-// PHP LOGIC BLOCK - START
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Session start and DB connection must be at the top of this logic block
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'includes/db.php'; // For $pdo
+require_once 'includes/db.php'; 
 
-$message = ''; // For messages displayed on THIS page load
+$message = ''; 
 $playlist_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// If no ID, redirect immediately before any other processing
+
 if (!$playlist_id) {
-    $_SESSION['message'] = "Error: No playlist ID specified for editing."; // Use session for message on redirect
+    $_SESSION['message'] = "Error: No playlist ID specified for editing."; 
     header("Location: playlists.php");
     exit;
 }
 
-// Function to recalculate playlist duration and song count
-// (Ensure this function is defined here or included from functions.php BEFORE it's called)
-if (!function_exists('update_playlist_meta')) { // Define if not in a global functions.php
+
+if (!function_exists('update_playlist_meta')) { 
     function update_playlist_meta($pdo_conn, $playlist_id_to_update) {
         try {
-            // Calculate total duration
             $stmt_duration = $pdo_conn->prepare("
                 SELECT SEC_TO_TIME(SUM(TIME_TO_SEC(p.CzasTrwania))) AS TotalDuration
                 FROM piosenka p
@@ -35,13 +33,13 @@ if (!function_exists('update_playlist_meta')) { // Define if not in a global fun
             $total_duration_row = $stmt_duration->fetch();
             $total_duration = $total_duration_row['TotalDuration'] ?? '00:00:00';
 
-            // Count songs
+
             $stmt_count = $pdo_conn->prepare("SELECT COUNT(*) as SongCount FROM playlista_piosenka WHERE PlaylistaID = ?");
             $stmt_count->execute([$playlist_id_to_update]);
             $song_count_row = $stmt_count->fetch();
             $song_count = $song_count_row['SongCount'] ?? 0;
 
-            // Update playlista table
+
             $stmt_update = $pdo_conn->prepare("UPDATE playlista SET CzasTrwania = ?, LiczbaUtworow = ? WHERE ID = ?");
             $stmt_update->execute([$total_duration, $song_count, $playlist_id_to_update]);
             return true;
@@ -53,22 +51,22 @@ if (!function_exists('update_playlist_meta')) { // Define if not in a global fun
 }
 
 
-// --- Handle Delete Playlist --- (THIS BLOCK CAN REDIRECT)
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_playlist'])) {
     try {
         $stmt = $pdo->prepare("DELETE FROM playlista WHERE ID = ?");
         $stmt->execute([$playlist_id]);
         $_SESSION['message'] = "Playlist deleted successfully.";
-        header("Location: playlists.php"); // REDIRECT
+        header("Location: playlists.php"); 
         exit;
     } catch (PDOException $e) {
-        // If deletion fails, we stay on this page, so set $message directly
+
         $message = "<p class='message error'>Error deleting playlist: " . htmlspecialchars($e->getMessage()) . "</p>";
     }
 }
 
 
-// --- Handle Playlist Name Update ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_playlist_name'])) {
     $new_playlist_name = trim($_POST['playlist_name']);
     if (!empty($new_playlist_name)) {
@@ -84,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_playlist_name'
     }
 }
 
-// --- Handle Add Song to Playlist ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_song'])) {
     $song_id_to_add = (int)$_POST['song_id'];
     if ($song_id_to_add > 0) {
@@ -105,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_song'])) {
     }
 }
 
-// --- Handle Remove Song from Playlist ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_song'])) {
     $song_id_to_remove = (int)$_POST['song_id'];
     if ($song_id_to_remove > 0) {
@@ -120,16 +118,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_song'])) {
     }
 }
 
-// --- Fetch Current Playlist Details (after any potential updates) ---
+
 $stmt_playlist = $pdo->prepare("SELECT * FROM playlista WHERE ID = ?");
 $stmt_playlist->execute([$playlist_id]);
 $playlist = $stmt_playlist->fetch();
 
-// If playlist was deleted in the logic above, $playlist will be false. Redirect.
+
 if (!$playlist) {
-    // The delete logic already handles redirect and session message.
-    // This is a fallback or if somehow ID became invalid.
-    if (!isset($_SESSION['message'])) { // Avoid overwriting delete success message
+    
+    if (!isset($_SESSION['message'])) { 
          $_SESSION['message'] = "Error: Playlist not found after processing.";
     }
     header("Location: playlists.php");

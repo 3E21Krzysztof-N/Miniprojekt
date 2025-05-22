@@ -2,7 +2,7 @@
 ini_set('display_errors', 1); error_reporting(E_ALL);
 include 'includes/header.php';
 
-// Duration formatter function
+
 if (!function_exists('format_duration_from_time_type')) {
     function format_duration_from_time_type($time_str) {
         if (empty($time_str) || $time_str == '00:00:00') return '0:00';
@@ -14,7 +14,7 @@ if (!function_exists('format_duration_from_time_type')) {
 }
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: playlists.php"); // Redirect if no ID
+    header("Location: playlists.php"); 
     exit;
 }
 $playlist_id = (int)$_GET['id'];
@@ -58,8 +58,6 @@ if (!$playlist) {
         WHERE pp.PlaylistaID = ?
         ORDER BY p.Tytul
     ");
-    // If album doesn't directly have WykonawcaID, you might need another join or adjust query
-    // For your schema: piosenka -> album (AlbumID) -> wykonawca (WykonawcaID on album table)
     $stmt_songs->execute([$playlist_id]);
     $songs = $stmt_songs->fetchAll();
 
